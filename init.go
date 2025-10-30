@@ -1,4 +1,4 @@
-package client
+package catfactsfetch
 
 import (
 	"net/http"
