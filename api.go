@@ -6,13 +6,10 @@ import (
 	"encoding/json"
 )
 
-func (c *Client) FunFact() (string, error) {
-	req, err := http.NewRequest(http.MethodGet, baseURL, nil)
-	if err != nil {
-		return "", err
-	}
+const baseURL string = "https://meowfacts.herokuapp.com/"
 
-	resp, err := c.httpclient.Do(req)
+func FunFact() (string, error) {
+	resp, err := http.Get(baseURL)
 	if err != nil {
 		return "", err
 	} else if resp.StatusCode >= 400 && resp.StatusCode <= 500 {
